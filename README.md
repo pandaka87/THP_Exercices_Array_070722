@@ -26,7 +26,7 @@ Maintenant on va travailler avec des hash, à partir de deux arrays : devises et
 
 Une fois cette association réalisée, code un programme Ruby pour donner :
 
-La ou les crypto qui ont la plus grosse valeur.
-La ou les crypto qui ont la plus petite valeur.
-Les devises dont le cours est inférieur à 6000
-La devise la plus chère parmi celles dont le cours est inférieur à 6000.
+ - La ou les crypto qui ont la plus grosse valeur.
+ - La ou les crypto qui ont la plus petite valeur.
+ - Les devises dont le cours est inférieur à 6000
+ - La devise la plus chère parmi celles dont le cours est inférieur à 6000.
