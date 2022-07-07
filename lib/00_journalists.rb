@@ -3,17 +3,34 @@ journalists = ["@jcunniet","@PaulLampon","@Aziliz31","@ssoumier","@marionsouzeau
 
 # faire un décompte des pseudos dans la liste
 puts " - Il y a #{journalists.length} pseudos de journalistes dans la liste." 
+puts " "
+
 # donner le pseudo le plus court de la liste
-puts " - Le pseudo le plus court de cette liste est #{journalists.min}." 
+puts " - Le pseudo le plus court de cette liste est #{journalists.min {|a, b| a.length <=> b.length }}." 
+puts " "
 
 # compter les pseudos contenant 5 caractères (le @ ne compte pas pour un caractère)
+puts " - Il y a #{journalists.count {|x| x.length == 6}} pseudos avec 5 caractères (@ ne compte pas pour un caractère)."
+puts " "
 
 # compter combien commencent par une majuscule (première lettre juste après le @)
+puts " - Il y a #{journalists.count {|x| x[1].match?( /[[:upper:]]/)}} pseudos commençant par une majuscule."
 
 # trier la liste de pseudos par ordre alphabétique
+puts " - Voici les journalistes dans l'ordre alphabétique de leurs pseudos : #{journalists.sort}"
+puts " "
 
 # trier la liste de handle par taille des handle (des plus petits aux plus grands)
+puts " - Voici les journalistes par taille de leurs pseudos (du plus petit au plus grand) : #{journalists.sort_by {|x| x.length}}"
+puts " "
 
 # donner la position dans l'array de la personne @epenser
+puts "@epenser est à la #{journalists.index {|x| x == "@epenser"}}ème position !"
+puts " "
 
 # donner une répartition des pseudos par taille de ces derniers (nombre de handle avec 1 caractère, nombre de handle avec 2 caractères, etc)
+nb_of_c = 0
+while nb_of_c <= 12
+  puts " - Le nombre de pseudos avec #{nb_of_c} caractères est de #{journalists.count {|x| x.length == nb_of_c}}."
+  nb_of_c += 1
+end
