@@ -30,7 +30,10 @@ puts " "
 
 # donner une répartition des pseudos par taille de ces derniers (nombre de handle avec 1 caractère, nombre de handle avec 2 caractères, etc)
 nb_of_c = 0
-while nb_of_c <= 12
+
+while nb_of_c <= 35
   puts " - Le nombre de pseudos avec #{nb_of_c} caractères est de #{journalists.count {|x| x.length == nb_of_c}}."
   nb_of_c += 1
 end
+
+
