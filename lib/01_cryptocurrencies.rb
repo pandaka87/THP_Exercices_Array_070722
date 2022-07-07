@@ -9,13 +9,45 @@ amount = amount.map(&:to_f)
 list_of_currencies = Hash[*currencies.zip(amount).flatten]
 
 # afficher la ou les crypto qui ont la plus grosse valeur
-puts " - La (ou les) crypto qui ont la plus grosse valeur est/sont : #{list_of_currencies.select {|x,y| y == amount.max}}."
+def big_value (list_of_currencies,amount)
+  puts " - La (ou les) crypto qui ont la plus grosse valeur est/sont : #{list_of_currencies.select {|x,y| y == amount.max}}."
+end
 
 # afficher la ou les crypto qui ont la plus petite valeur
-puts " - La (ou les) crypto qui ont la plus petite valeur est/sont : #{list_of_currencies.select {|x,y| y == amount.min}}."
+def small_value (list_of_currencies,amount)
+  puts " - La (ou les) crypto qui ont la plus petite valeur est/sont : #{list_of_currencies.select {|x,y| y == amount.min}}."
+end
 
 # afficher les devises dont le cours est inférieur à 6000
-puts " - La (ou les) crypto dont la valeur est inférieure à 6000 : #{list_of_currencies.select {|x,y| y < 6000 }}."
+def less_6000 (list_of_currencies)
+  puts " - La (ou les) crypto dont la valeur est inférieure à 6000 : #{list_of_currencies.select {|x,y| y < 6000 }}."
+end
 
 # afficher la devise la plus chère parmi celles dont le cours est inférieur à 6000
-puts " - La crypto qui vaut le plus parmis celles inférieures à 6000 : #{list_of_currencies.select { |x,y| y < 6000 }.max_by{ |x,y| y }}."
+def less_6000_big (list_of_currencies)
+  puts " - La crypto qui vaut le plus parmis celles inférieures à 6000 : #{list_of_currencies.select { |x,y| y < 6000 }.max_by{ |x,y| y }}."
+end
+
+
+5.times do
+  puts "Que souhaitez-vous faire ?
+  1: ... afficher la ou les crypto qui ont la plus grosse valeur
+  2: ... afficher la ou les crypto qui ont la plus petite valeur
+  3: ... afficher les devises dont le cours est inférieur à 6000
+  4: ... afficher la devise la plus chère parmi celles dont le cours est inférieur à 6000"
+
+  puts " "
+  print " > "
+  number = gets.chomp.to_i
+  
+  if number == 1
+      puts big_value(list_of_currencies,amount)
+  elsif  number == 2
+      puts small_value(list_of_currencies,amount)
+  elsif number == 3
+      puts less_6000(list_of_currencies)
+  elsif
+      number == 4
+      puts less_6000_big(list_of_currencies)
+  end
+end
